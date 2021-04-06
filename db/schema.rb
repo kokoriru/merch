@@ -10,9 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_06_111212) do
+ActiveRecord::Schema.define(version: 2021_04_06_173436) do
 
   create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.integer "sequence"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "parent_categories", force: :cascade do |t|
     t.string "name"
     t.integer "sequence"
     t.datetime "created_at", precision: 6, null: false
