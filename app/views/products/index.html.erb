@@ -2,6 +2,7 @@ Wish List
 
 <table border=1>
   <tr>
+    <th>ID</th>
     <th>名称</th>
     <th>状態</th>
     <th>受注生産</th>
@@ -13,6 +14,7 @@ Wish List
   </tr>
   <% @products.each do |product| %>
     <tr>
+      <td><%= product.id %></td>
       <td><%= product.name %></td>
       <td><%= product.status %></td>
       <td><%= product.made_to_order %></td>
