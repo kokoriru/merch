@@ -1,0 +1,57 @@
+<%= form_with model: @product, url: products_path, local: true do |f| %>
+  <%# error_messages_for @product %>
+
+  <p>
+    <%= f.label :manufacturer %>
+    <%= f.text_field :manufacturer %>
+  </p>
+
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :status %>
+    <%= f.select :status, Product.statuses.keys, { selected: @product.status } %>
+  </p>
+
+  <p>
+    <%= f.label :made_to_order %>
+    <%= f.check_box :made_to_order %>
+  </p>
+
+  <p>
+    <%= f.label :started_at %>
+    <%= f.text_field :started_at %>
+  </p>
+
+  <p>
+    <%= f.label :ended_at %>
+    <%= f.text_field :ended_at %>
+  </p>
+
+  <p>
+    <%= f.label :reserved_at %>
+    <%= f.text_field :reserved_at %>
+  </p>
+
+  <p>
+    <%= f.label :scheduled_arrival %>
+    <%= f.text_field :scheduled_arrival %>
+  </p>
+
+  <p>
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+  </p>
+
+  <p>
+    <%= f.label :note %>
+    <%= f.text_area :note %>
+  </p>
+
+  <p>
+    <%= f.submit '登録' %>
+  </p>
+<% end %>
