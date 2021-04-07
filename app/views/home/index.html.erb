@@ -1,104 +1,85 @@
 <!-- Navigation -->
-   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-     <div class="container">
-       <%= link_to 'Merch', root_path, class: 'navbar-brand' %>
-       <%# link_to "DIVE INTO CODE", products_path, class: 'navbar-brand' %>
-       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-         Menu
-         <i class="fa fa-bars"></i>
-       </button>
-       <div class="collapse navbar-collapse" id="navbarResponsive">
-         <ul class="navbar-nav ml-auto">
-           <li class="nav-item">
-             <%= link_to 'Home', root_path %>
-           </li>
-           <li class="nav-item">
-             <%= link_to 'Home', root_path %>
-             <%# link_to 'New Blog', new_product_path %>
-           </li>
-         </ul>
-       </div>
-     </div>
-   </nav>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <%= link_to 'Merch', root_path, class: 'navbar-brand' %>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fa fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><%= link_to 'Wish List', products_path %></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-   <!-- Page Header -->
-   <header class="masthead" style="background-image: url(<%= asset_path "home-bg.jpg" %>)">
-     <div class="overlay"></div>
-     <div class="container">
-       <div class="row">
-         <div class="col-lg-8 col-md-10 mx-auto">
-           <div class="site-heading">
-             <h1>DIVE INTO CODE</h1>
-             <span class="subheading">プロのエンジニアになるために挑戦する人が、</br>チャンスをつかめる場をつくる</span>
-           </div>
-         </div>
-       </div>
-     </div>
-   </header>
+<!-- Page Header -->
+<header class="masthead" style="background-image: url(<%= asset_path "home-bg.jpg" %>)">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1>Merch</h1>
+          <span class="subheading">商品の販売/購入状況を一括管理</br>まずは、あなたのほしいものを登録しよう！</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
 
-   <!-- Main Content -->
-   <div class="container">
-     <div class="row">
-       <div class="col-lg-8 col-md-10 mx-auto">
-         <% @products.each do |product| %>
-         <div class="post-preview">
-             <h2 class="post-title">
-               <%= link_to 'Home', root_path %>
-               <%# link_to product.title, product_path(product) %>
-             </h2>
-             <h3 class="post-subtitle">
-               <%= link_to 'Home', root_path %>
-               <%# product.content %>
-             </h3>
-           </a>
-           <p class="post-meta"><%= product.created_at %></p>
-         </div>
-         <hr>
-         <% end %>
-         <!-- Pager -->
-         <div class="clearfix">
-           <%= link_to 'Home', root_path %>
-           <%# link_to 'New Blog', new_product_path %>
-         </div>
-       </div>
-     </div>
-   </div>
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <% @products.each do |product| %>
+        <div class="post-preview">
+          <h2 class="post-title"><%= link_to "#{product.name} (#{product.manufacturer})", product_path(product) %></h2>
+          <!-- <h3 class="post-subtitle"> --><%# product.manufacturer %><!-- </h3> -->
+          <p class="post-meta"><%= product.started_at %></p>
+        </div>
+        <hr>
+      <% end %>
+    </div>
+ </div>
+</div>
 
-   <hr>
+<hr>
 
-   <!-- Footer -->
-   <footer>
-     <div class="container">
-       <div class="row">
-         <div class="col-lg-8 col-md-10 mx-auto">
-           <ul class="list-inline text-center">
-             <li class="list-inline-item">
-               <a href="https://twitter.com/dive_into_code/">
-                 <span class="fa-stack fa-lg">
-                   <i class="fa fa-circle fa-stack-2x"></i>
-                   <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-                 </span>
-               </a>
-             </li>
-             <li class="list-inline-item">
-               <a href="https://www.facebook.com/diveintocode.jp/">
-                 <span class="fa-stack fa-lg">
-                   <i class="fa fa-circle fa-stack-2x"></i>
-                   <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
-                 </span>
-               </a>
-             </li>
-             <li class="list-inline-item">
-               <a href="https://github.com/DiveintoCode-corp">
-                 <span class="fa-stack fa-lg">
-                   <i class="fa fa-circle fa-stack-2x"></i>
-                   <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                 </span>
-               </a>
-             </li>
-           </ul>
-           <p class="copyright text-muted">Copyright &copy; kokoriru.</p>
-         </div>
-       </div>
-     </div>
-   </footer>
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <ul class="list-inline text-center">
+          <li class="list-inline-item">
+            <a href="https://twitter.com/dive_into_code/">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://www.facebook.com/diveintocode.jp/">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://github.com/DiveintoCode-corp">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+        </ul>
+        <p class="copyright text-muted">Copyright &copy; kokoriru.</p>
+      </div>
+    </div>
+  </div>
+</footer>
