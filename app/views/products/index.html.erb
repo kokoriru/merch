@@ -15,7 +15,7 @@ Wish List
   <% @products.each do |product| %>
     <tr>
       <td><%= product.id %></td>
-      <td><%= product.name %></td>
+      <td><%= link_to product.name, product_path(product) %></td>
       <td><%= product.status %></td>
       <td><%= product.made_to_order %></td>
       <td><%= product.started_at %></td>
