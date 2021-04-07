@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[show]
+  before_action :set_product, only: %i[show edit update]
 
   def index
     @products = Product.all
@@ -14,9 +14,20 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to products_path(@product)
+      redirect_to product_path(@product)
     else
       render 'new'
+    end
+  end
+
+  def edit; end
+
+  def update
+    p product_params
+    if @product.update(product_params)
+      redirect_to product_path(@product)
+    else
+      render 'edit'
     end
   end
 
