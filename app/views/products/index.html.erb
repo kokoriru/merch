@@ -1,0 +1,34 @@
+Wish List
+
+<%= link_to '新規登録', new_product_path %>
+
+<table border=1>
+  <tr>
+    <th>ID</th>
+    <th>名称</th>
+    <th>状態</th>
+    <th>受注生産</th>
+    <th>予約開始日時</th>
+    <th>予約終了日時</th>
+    <th>予約完了日</th>
+    <th>到着予定時期</th>
+    <th>URL</th>
+    <th>編集</th>
+    <th>削除</th>
+  </tr>
+  <% @products.each do |product| %>
+    <tr>
+      <td><%= product.id %></td>
+      <td><%= link_to product.name, product_path(product) %></td>
+      <td><%= product.status %></td>
+      <td><%= product.made_to_order %></td>
+      <td><%= product.started_at %></td>
+      <td><%= product.ended_at %></td>
+      <td><%= product.reserved_at %></td>
+      <td><%= product.scheduled_arrival %></td>
+      <td><%= product.url %></td>
+      <td><%= link_to '◆', edit_product_path(product) %></td>
+      <td><%= link_to '◆', product_path(product), method: :delete, data: { confirm: '削除してよろしいですか？' } %></td>
+    </tr>
+  <% end %>
+</table>
