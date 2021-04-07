@@ -13,6 +13,7 @@ Wish List
     <th>予約完了日</th>
     <th>到着予定時期</th>
     <th>URL</th>
+    <th>編集</th>
   </tr>
   <% @products.each do |product| %>
     <tr>
@@ -25,6 +26,7 @@ Wish List
       <td><%= product.reserved_at %></td>
       <td><%= product.scheduled_arrival %></td>
       <td><%= product.url %></td>
+      <td><%= link_to '◆', edit_product_path(product) %></td>
     </tr>
   <% end %>
 </table>
