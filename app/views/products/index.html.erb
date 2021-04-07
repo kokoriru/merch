@@ -1,0 +1,26 @@
+Wish List
+
+<table border=1>
+  <tr>
+    <th>名称</th>
+    <th>状態</th>
+    <th>受注生産</th>
+    <th>予約開始日時</th>
+    <th>予約終了日時</th>
+    <th>予約完了日</th>
+    <th>到着予定時期</th>
+    <th>URL</th>
+  </tr>
+  <% @products.each do |product| %>
+    <tr>
+      <td><%= product.name %></td>
+      <td><%= product.status %></td>
+      <td><%= product.made_to_order %></td>
+      <td><%= product.started_at %></td>
+      <td><%= product.ended_at %></td>
+      <td><%= product.reserved_at %></td>
+      <td><%= product.scheduled_arrival %></td>
+      <td><%= product.url %></td>
+    </tr>
+  <% end %>
+</table>
