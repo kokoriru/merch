@@ -19,7 +19,7 @@
   <% ParentCategory.all.each_with_index do |parent, i| %>
     <p><%= parent.name %></p>
     <% parent.categories.each do |category| %>
-      <%= f.check_box :category_ids, { multiple: true, selected: @product.categories.map(&:id) }, category.id %>
+      <%= f.check_box :category_ids, { multiple: true, include_hidden: false, selected: @product.categories.map(&:id) }, category.id %>
       <%= f.label "category_ids_#{category.id}", category.name %>
     <% end %>
   <% end %>
