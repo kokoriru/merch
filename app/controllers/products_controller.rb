@@ -44,7 +44,8 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(
       :manufacturer, :name, :status, :made_to_order,
-      :started_at, :ended_at, :reserved_at, :scheduled_arrival, :url, :note
+      :started_at, :ended_at, :reserved_at, :scheduled_arrival, :url, :note,
+      category_ids: []
     )
   end
 end

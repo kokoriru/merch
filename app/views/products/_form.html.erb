@@ -16,6 +16,14 @@
     <%= f.select :status, Product.statuses.keys, { selected: @product.status } %>
   </p>
 
+  <% ParentCategory.all.each_with_index do |parent, i| %>
+    <p><%= parent.name %></p>
+    <% parent.categories.each do |category| %>
+      <%= f.check_box :category_ids, { selected: @product.categories.map(&:id) }, category.id %>
+      <%= f.label "category_ids_#{category.id}", category.name %>
+    <% end %>
+  <% end %>
+
   <p>
     <%= f.label :made_to_order %>
     <%= f.check_box :made_to_order %>
