@@ -7,6 +7,8 @@ Wish List
     <th>ID</th>
     <th>名称</th>
     <th>状態</th>
+    <th>作品名</th>
+    <th>ラインナップ</th>
     <th>受注生産</th>
     <th>予約開始日時</th>
     <th>予約終了日時</th>
@@ -21,6 +23,14 @@ Wish List
       <td><%= product.id %></td>
       <td><%= link_to product.name, product_path(product) %></td>
       <td><%= product.status %></td>
+      <td><%= product.categories.map(&:parent).map(&:name).uniq.join(', ') %></td>
+      <td>
+        <ul>
+          <% product.categories.each do |category| %>
+            <li><%= category.name %></li>
+          <% end %>
+        </ul>
+      </td>
       <td><%= product.made_to_order %></td>
       <td><%= product.started_at %></td>
       <td><%= product.ended_at %></td>
