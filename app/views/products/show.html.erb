@@ -1,5 +1,7 @@
 Wish List
 
+<%= @product.categories.map(&:parent).map(&:name).uniq.join(', ') %>
+
 <table border=1>
   <tr>
     <th>ID</th>
