@@ -18,6 +18,16 @@ Wish List
     <td><%= @product.status %></td>
   </tr>
   <tr>
+    <th>名称</th>
+    <td>
+      <ul>
+        <% @product.categories.each do |category| %>
+          <li><%= category.name %></li>
+        <% end %>
+      </ul>
+    </td>
+    </tr>
+  <tr>
     <th>受注生産</th>
     <td><%= @product.made_to_order %></td>
   </tr>
