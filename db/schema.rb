@@ -15,10 +15,10 @@ ActiveRecord::Schema.define(version: 2021_04_06_111212) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.integer "sequence"
-    t.integer "parent_id"
+    t.integer "title_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["parent_id"], name: "index_categories_on_parent_id"
+    t.index ["title_id"], name: "index_categories_on_title_id"
   end
 
   create_table "parent_categories", force: :cascade do |t|
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2021_04_06_111212) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "categories", "parent_categories", column: "parent_id"
+  add_foreign_key "categories", "parent_categories", column: "title_id"
   add_foreign_key "product_categories", "categories"
   add_foreign_key "product_categories", "products"
 end
